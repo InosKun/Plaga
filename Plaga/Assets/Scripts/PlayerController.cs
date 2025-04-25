@@ -4,45 +4,41 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public float moveSpeed;
+    public float moveSpeed = 5f;
 
     private bool isMoving;
 
-    private Vector2 input;
+    private Animator animator;
+
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     private void Update()
     {
-         if (!isMoving)
-         {
-            input.x = Input.GetAxisRaw("Horizontal");
-            input.y = Input.GetAxisRaw("Vertical");
+        Vector2 input;
+        input.x = Input.GetAxisRaw("Horizontal");
+        input.y = Input.GetAxisRaw("Vertical");
 
-            if (input != Vector2.zero) 
-            { 
-                var targetPos = transform.position;
-                targetPos.x += input.x;
-                targetPos.y += input.y;
+        // Log input to debug movement
+        Debug.Log("This is input.x " + input.x);
+        Debug.Log("This is input.y " + input.y);
 
-                StartCoroutine(Move(targetPos));
-            }
+        // Set animation parameters
+        animator.SetFloat("moveX", input.x);
+        animator.SetFloat("moveY", input.y);
 
-         }
+        // Normalize to prevent diagonal speed boost
+        input = input.normalized;
 
-    }
+        // Move player
+        transform.position += (Vector3)(input * moveSpeed * Time.deltaTime);
 
-    IEnumerator Move(Vector3 targetPos) 
-    { 
-        isMoving = true;
-
-        while ((targetPos - transform.position).sqrMagnitude > Mathf.Epsilon)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, targetPos, moveSpeed * Time.deltaTime);
-            yield return null;
-        }
-        transform.position = targetPos;
-
-        isMoving = false;
+        // Update isMoving based on whether input is being pressed
+        isMoving = input != Vector2.zero;
+        animator.SetBool("isMoving", isMoving);
     }
 
 }
+
