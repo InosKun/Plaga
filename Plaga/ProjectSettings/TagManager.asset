@@ -8,11 +8,11 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - player
   - Water
   - UI
-  - 
-  - 
+  - background
+  - solidObject
   - 
   - 
   - 
@@ -41,3 +41,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: background
+    uniqueID: 1951176921
+    locked: 0
+  - name: player
+    uniqueID: 4129182299
+    locked: 1

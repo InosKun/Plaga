@@ -1,44 +1,82 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 5f;
 
-    private bool isMoving;
-
     private Animator animator;
+    private Rigidbody2D rb;
+    private CapsuleCollider2D capsuleCollider;
+    public LayerMask solidObject;
+
+    private Vector2 input;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
+        capsuleCollider = GetComponent<CapsuleCollider2D>();
     }
 
     private void Update()
     {
-        Vector2 input;
         input.x = Input.GetAxisRaw("Horizontal");
         input.y = Input.GetAxisRaw("Vertical");
 
-        // Log input to debug movement
-        Debug.Log("This is input.x " + input.x);
-        Debug.Log("This is input.y " + input.y);
-
-        // Set animation parameters
-        animator.SetFloat("moveX", input.x);
-        animator.SetFloat("moveY", input.y);
-
-        // Normalize to prevent diagonal speed boost
         input = input.normalized;
 
-        // Move player
-        transform.position += (Vector3)(input * moveSpeed * Time.deltaTime);
+        animator.SetFloat("moveX", input.x);
+        animator.SetFloat("moveY", input.y);
+        animator.SetBool("isMoving", input != Vector2.zero);
+    }
 
-        // Update isMoving based on whether input is being pressed
-        isMoving = input != Vector2.zero;
-        animator.SetBool("isMoving", isMoving);
+    private void FixedUpdate()
+    {
+        if (input != Vector2.zero)
+        {
+            Vector2 moveDelta = input * moveSpeed * Time.fixedDeltaTime;
+
+            // Try full movement first
+            if (!IsColliding(rb.position + moveDelta))
+            {
+                rb.MovePosition(rb.position + moveDelta);
+            }
+            else
+            {
+                // Try moving in X only
+                Vector2 moveX = new Vector2(moveDelta.x, 0);
+                if (!IsColliding(rb.position + moveX))
+                {
+                    rb.MovePosition(rb.position + moveX);
+                }
+                else
+                {
+                    // Try moving in Y only
+                    Vector2 moveY = new Vector2(0, moveDelta.y);
+                    if (!IsColliding(rb.position + moveY))
+                    {
+                        rb.MovePosition(rb.position + moveY);
+                    }
+                }
+            }
+        }
+    }
+
+
+    private bool IsColliding(Vector2 targetPos)
+    {
+        Vector2 capsuleSize = capsuleCollider.size; // Slightly smaller to avoid edge overlaps
+
+        RaycastHit2D hit = Physics2D.BoxCast(
+            targetPos,
+            capsuleSize,
+            0f,
+            Vector2.zero,
+            0f,
+            solidObject
+        );
+
+        return hit.collider != null;
     }
 
 }
-
