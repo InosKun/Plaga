@@ -5,7 +5,19 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/lobby.unity
+    guid: f91f3ba4b11239840872b30dd5d23653
+  - enabled: 1
+    path: Assets/Scenes/puente.unity
+    guid: 3b7d1cadef79ebd4690c177a8e8b8289
+  - enabled: 1
+    path: Assets/Scenes/fachadaCatedral.unity
+    guid: f2ec81f2aab0e994bbd4d478b67b1a46
+  - enabled: 1
+    path: Assets/Scenes/catedralDentro.unity
+    guid: 29dde42203f3c77469739757ee226e5e
   m_configObjects: {}
