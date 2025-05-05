@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81b7dc9cf91e6a644abc4b2ba62dd5b5, type: 3}
   m_Name: Perla
   m_EditorClassIdentifier: 
-  materialName: 
+  materialName: Perla
   icon: {fileID: 21300000, guid: 9fcb0a1078f059f4c9c44f5def111763, type: 3}

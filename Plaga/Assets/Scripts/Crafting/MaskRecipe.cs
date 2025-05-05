@@ -1,11 +1,11 @@
-using UnityEngine;
+﻿using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewMaskRecipe", menuName = "Crafting/MaskRecipe")]
+[CreateAssetMenu(menuName = "Crafting/Mask Recipe")]
 public class MaskRecipe : ScriptableObject
 {
-    public string maskName;
+    public string maskName; // 🔴 This is the missing line
     public Sprite icon;
+
     public MaterialItem ingredient1;
     public MaterialItem ingredient2;
-    public string description;
 }

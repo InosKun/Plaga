@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81b7dc9cf91e6a644abc4b2ba62dd5b5, type: 3}
   m_Name: Ajorca
   m_EditorClassIdentifier: 
-  materialName: 
+  materialName: Ajorca
   icon: {fileID: 21300000, guid: 17ab2f106b0e3db4b9ffad740b1534ef, type: 3}

@@ -14,6 +14,11 @@ public class CraftingManager : MonoBehaviour
 
     public Button craftButton;
 
+    public float holdDuration = 2f;
+    private float holdTimer = 0f;
+    private bool canCraft = false;
+
+
     private void Start()
     {
         craftButton.onClick.AddListener(AttemptCraft);
@@ -27,6 +32,28 @@ public class CraftingManager : MonoBehaviour
         CheckForMatch();
     }
 
+    private void Update()
+    {
+        if (!canCraft) return;
+
+        if (Input.GetKey(KeyCode.E))
+        {
+            holdTimer += Time.unscaledDeltaTime;
+
+            if (holdTimer >= holdDuration)
+            {
+                AttemptCraft();
+                holdTimer = 0f;
+                canCraft = false;
+            }
+        }
+        else
+        {
+            holdTimer = 0f;
+        }
+    }
+
+
     private void CheckForMatch()
     {
         foreach (var recipe in allRecipes)
@@ -36,15 +63,17 @@ public class CraftingManager : MonoBehaviour
             {
                 resultIcon.sprite = recipe.icon;
                 resultNameText.text = recipe.maskName;
-                craftButton.interactable = true;
+                craftButton.interactable = false; // We'll use hold instead
+                canCraft = true;
                 return;
             }
         }
 
         resultIcon.sprite = null;
         resultNameText.text = "";
-        craftButton.interactable = false;
+        canCraft = false;
     }
+
 
     private void AttemptCraft()
     {

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81b7dc9cf91e6a644abc4b2ba62dd5b5, type: 3}
   m_Name: Pluma
   m_EditorClassIdentifier: 
-  materialName: 
+  materialName: Pluma
   icon: {fileID: 21300000, guid: 8fc7f560e41ae8c41be247e67f90f65b, type: 3}

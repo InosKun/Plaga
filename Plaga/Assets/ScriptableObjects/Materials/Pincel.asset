@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81b7dc9cf91e6a644abc4b2ba62dd5b5, type: 3}
   m_Name: Pincel
   m_EditorClassIdentifier: 
-  materialName: 
+  materialName: Pincel
   icon: {fileID: 21300000, guid: 1cae21f07c5be06499f0495ba8616d27, type: 3}
