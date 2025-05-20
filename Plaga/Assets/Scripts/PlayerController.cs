@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     public LayerMask solidObject;
 
     private Vector2 input;
+    private Vector2 lastMoveDir;
+
 
     private void Awake()
     {
@@ -32,21 +34,41 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E))
             Interact();
+
+        if (input != Vector2.zero)
+        {
+            lastMoveDir = input;
+        }
     }
 
     void Interact()
     {
-        var facingDir = new Vector3(animator.GetFloat("moveX"), animator.GetFloat("moveY"));
-        var interactPos = transform.position + facingDir;
+        Vector3 interactPos = transform.position + new Vector3(lastMoveDir.x, lastMoveDir.y);
+        Debug.DrawLine(transform.position, interactPos, Color.yellow, 1f);
 
-        Debug.DrawLine(transform.position, interactPos, Color.red, 1f);
-
-        var collider = Physics2D.OverlapCircle(interactPos, 0.2f, Interactable);
+        Collider2D collider = Physics2D.OverlapCircle(interactPos, 0.6f, Interactable);
         if (collider != null)
         {
-            Debug.Log("NPC HERE");
+            Debug.Log("Collider hit: " + collider.name);
+
+            NPCInteractable npc = collider.GetComponent<NPCInteractable>();
+            if (npc != null)
+            {
+                npc.Interact();
+            }
+            else
+            {
+                Debug.Log("Hit something, but no NPCInteractable script.");
+            }
         }
+        else
+        {
+            Debug.Log("Nothing detected in range.");
+        }
+
     }
+
+
 
     private void FixedUpdate()
     {
