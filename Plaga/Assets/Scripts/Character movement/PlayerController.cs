@@ -23,6 +23,9 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if (DialogueManager.DialogueIsActive)
+        return; 
+
         input.x = Input.GetAxisRaw("Horizontal");
         input.y = Input.GetAxisRaw("Vertical");
 
@@ -32,42 +35,11 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("moveY", input.y);
         animator.SetBool("isMoving", input != Vector2.zero);
 
-        if (Input.GetKeyDown(KeyCode.E))
-            Interact();
-
         if (input != Vector2.zero)
         {
             lastMoveDir = input;
         }
     }
-
-    void Interact()
-    {
-        Vector3 interactPos = transform.position + new Vector3(lastMoveDir.x, lastMoveDir.y);
-        Debug.DrawLine(transform.position, interactPos, Color.yellow, 1f);
-
-        Collider2D collider = Physics2D.OverlapCircle(interactPos, 0.6f, Interactable);
-        if (collider != null)
-        {
-            Debug.Log("Collider hit: " + collider.name);
-
-            NPCInteractable npc = collider.GetComponent<NPCInteractable>();
-            if (npc != null)
-            {
-                npc.Interact();
-            }
-            else
-            {
-                Debug.Log("Hit something, but no NPCInteractable script.");
-            }
-        }
-        else
-        {
-            Debug.Log("Nothing detected in range.");
-        }
-
-    }
-
 
 
     private void FixedUpdate()

@@ -14,7 +14,7 @@ TagManager:
   - background
   - solidObject
   - Interactable
-  - 
+  - 'PlayerController '
   - 
   - 
   - 
@@ -47,3 +47,6 @@ TagManager:
   - name: player
     uniqueID: 4129182299
     locked: 1
+  - name: Interactable
+    uniqueID: 3103104827
+    locked: 0
