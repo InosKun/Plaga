@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fcdf4037f1f3724cb127ef8bc3329a8, type: 3}
+  m_Name: Bruma
+  m_EditorClassIdentifier: 
+  maskName: Plaga
+  icon: {fileID: 21300000, guid: f5a5af6ce9a4d0341becd4c2b0f71b1e, type: 3}
+  ingredient1: {fileID: 11400000, guid: 3842bbbbc260186458746f9bd635f856, type: 2}
+  ingredient2: {fileID: 11400000, guid: 50e87b1d6688d3646afce309f56b4c7b, type: 2}
+  description: 

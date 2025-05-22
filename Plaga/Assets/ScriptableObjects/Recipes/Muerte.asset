@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fcdf4037f1f3724cb127ef8bc3329a8, type: 3}
+  m_Name: Muerte
+  m_EditorClassIdentifier: 
+  maskName: Muerte
+  icon: {fileID: 21300000, guid: 5755c48bbb089844087f17c9200f7783, type: 3}
+  ingredient1: {fileID: 11400000, guid: e88ee38118ae4394c9bff87bddc56d8d, type: 2}
+  ingredient2: {fileID: 11400000, guid: 77802aebeeb769c45b092417a543bdbc, type: 2}
+  description: 
