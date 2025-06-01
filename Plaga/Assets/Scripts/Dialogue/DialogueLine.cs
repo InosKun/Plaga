@@ -8,5 +8,14 @@ public class DialogueLine : ScriptableObject
 
     public string speakerName;
 
-    public Sprite portrait; // New field for expressions
+    public Sprite portrait;
+
+    [System.Serializable]
+    public class Choice
+    {
+        public string choiceText;
+        public DialogueLine nextLine;
+    }
+
+    public Choice[] choices;
 }

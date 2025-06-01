@@ -23,6 +23,10 @@ public class DialogueManager : MonoBehaviour
     private Queue<DialogueLine> dialogueQueue = new Queue<DialogueLine>();
     private bool isDialogueActive = false;
 
+    [Header("Choices")]
+    public GameObject choicePanel;
+    public GameObject choiceButtonPrefab;
+
     private void Awake()
     {
         if (instance == null) instance = this;
@@ -106,6 +110,42 @@ public class DialogueManager : MonoBehaviour
             isTyping = false;
         }
 
+        // Show choices if this line has them
+        if (currentLine.choices != null && currentLine.choices.Length > 0)
+        {
+            StartCoroutine(ShowChoices(currentLine.choices));
+            return;
+        }
+
+    }
+
+    private IEnumerator ShowChoices(DialogueLine.Choice[] choices)
+    {
+        isDialogueActive = false; // pause dialogue flow
+        choicePanel.SetActive(true);
+
+        // Remove previous buttons
+        foreach (Transform child in choicePanel.transform)
+        {
+            Destroy(child.gameObject);
+        }
+
+        // Create buttons
+        for (int i = 0; i < choices.Length; i++)
+        {
+            var choice = choices[i];
+            GameObject buttonObj = Instantiate(choiceButtonPrefab, choicePanel.transform);
+            TextMeshProUGUI btnText = buttonObj.GetComponentInChildren<TextMeshProUGUI>();
+            btnText.text = $"{i + 1}. {choice.choiceText}";
+
+            int index = i;
+            buttonObj.GetComponent<Button>().onClick.AddListener(() =>
+            {
+                OnChoiceSelected(choices[index].nextLine);
+            });
+        }
+
+        yield return null;
     }
 
 
@@ -128,7 +168,43 @@ public class DialogueManager : MonoBehaviour
                 ShowNextLine();
             }
         }
+
+        if (choicePanel.activeSelf)
+        {
+            for (int i = 0; i < 9; i++)
+            {
+                if (Input.GetKeyDown(KeyCode.Alpha1 + i))
+                {
+                    var buttons = choicePanel.GetComponentsInChildren<Button>();
+                    if (i < buttons.Length)
+                    {
+                        buttons[i].onClick.Invoke();
+                    }
+                }
+            }
+
+            return;
+        }
+
     }
+
+    private void OnChoiceSelected(DialogueLine nextLine)
+    {
+        choicePanel.SetActive(false);
+        dialogueQueue.Clear();
+
+        if (nextLine != null)
+        {
+            dialogueQueue.Enqueue(nextLine);
+            isDialogueActive = true;
+            ShowNextLine();
+        }
+        else
+        {
+            EndDialogue(); // if no follow-up line, end dialogue
+        }
+    }
+
 
 
     private void EndDialogue()

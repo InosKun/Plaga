@@ -10,10 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c251a94ba76ffa745988d51b59ab4b31, type: 3}
-  m_Name: "Mar\xEDa3"
+  m_Name: Respuesta
   m_EditorClassIdentifier: 
-  lineText: "Estar\xE9is contentos de lo que ha ocurrido, \xBFno? De todas las vidas
-    que hab\xE9is puesto en riesgo... "
+  lineText: Muchas gracias...
   speakerName: "Do\xF1a Mar\xEDa"
   portrait: {fileID: 21300000, guid: c9698dd7ca1c5ab46900f8ed14ab5157, type: 3}
   choices: []

@@ -10,9 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c251a94ba76ffa745988d51b59ab4b31, type: 3}
-  m_Name: "Mar\xEDa"
+  m_Name: Decision
   m_EditorClassIdentifier: 
-  lineText: "No me lo puedo creer, t\xFA otra vez por aqu\xED..."
+  lineText: "Como la de Don Pedro... El pobre hombre ya no es el mismo. Si tan solo
+    tuviera un poco de esperanza, podr\xEDa seguir adelante..."
   speakerName: "Do\xF1a Mar\xEDa"
   portrait: {fileID: 21300000, guid: 7775928e4bf136c4089bbeb3ad11e76e, type: 3}
-  choices: []
+  choices:
+  - choiceText: "Ver\xE9 qu\xE9 puedo hacer para ayudarle..."
+    nextLine: {fileID: 11400000, guid: a08af435c255c1e45b2daf4487236196, type: 2}
+  - choiceText: "Lo siento, el Cardenal me est\xE1 esperando..."
+    nextLine: {fileID: 11400000, guid: 2aabb3b34c678634d8bbc816a2d87d2d, type: 2}
