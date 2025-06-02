@@ -26,6 +26,7 @@ public class DialogueManager : MonoBehaviour
     [Header("Choices")]
     public GameObject choicePanel;
     public GameObject choiceButtonPrefab;
+    private int selectedIndex;
 
     private void Awake()
     {
@@ -141,8 +142,9 @@ public class DialogueManager : MonoBehaviour
             int index = i;
             buttonObj.GetComponent<Button>().onClick.AddListener(() =>
             {
-                OnChoiceSelected(choices[index].nextLine);
+                OnChoiceSelected(choices[index]);
             });
+
         }
 
         yield return null;
@@ -188,22 +190,29 @@ public class DialogueManager : MonoBehaviour
 
     }
 
-    private void OnChoiceSelected(DialogueLine nextLine)
+    private void OnChoiceSelected(DialogueLine.Choice choice)
     {
         choicePanel.SetActive(false);
         dialogueQueue.Clear();
 
-        if (nextLine != null)
+        // Trigger frame swap if defined
+        if (choice.frameIndexToSet >= 0)
         {
-            dialogueQueue.Enqueue(nextLine);
+            UIFrameManager.instance.ChangeFrame(choice.frameIndexToSet);
+        }
+
+        if (choice.nextLine != null)
+        {
+            dialogueQueue.Enqueue(choice.nextLine);
             isDialogueActive = true;
             ShowNextLine();
         }
         else
         {
-            EndDialogue(); // if no follow-up line, end dialogue
+            EndDialogue();
         }
     }
+
 
 
 

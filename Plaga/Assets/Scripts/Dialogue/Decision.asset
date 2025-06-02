@@ -19,5 +19,7 @@ MonoBehaviour:
   choices:
   - choiceText: "Ver\xE9 qu\xE9 puedo hacer para ayudarle..."
     nextLine: {fileID: 11400000, guid: a08af435c255c1e45b2daf4487236196, type: 2}
+    frameIndexToSet: 0
   - choiceText: "Lo siento, el Cardenal me est\xE1 esperando..."
     nextLine: {fileID: 11400000, guid: 2aabb3b34c678634d8bbc816a2d87d2d, type: 2}
+    frameIndexToSet: -1

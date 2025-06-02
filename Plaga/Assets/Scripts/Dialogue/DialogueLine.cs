@@ -15,7 +15,11 @@ public class DialogueLine : ScriptableObject
     {
         public string choiceText;
         public DialogueLine nextLine;
+
+        [Tooltip("If >= 0, this frame index will be applied after this choice.")]
+        public int frameIndexToSet = -1; // -1 means no frame change
     }
+
 
     public Choice[] choices;
 }
