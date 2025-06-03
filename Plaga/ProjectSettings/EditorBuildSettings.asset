@@ -26,4 +26,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: 0f401f4c2beb51a4294e0ec185e86f51
+  - enabled: 1
+    path: Assets/Scenes/splash.unity
+    guid: e24a34f26e09442f9b79690b73463594
+  - enabled: 1
+    path: Assets/Scenes/MenuPpal.unity
+    guid: 0b32c3384bf694ebd948a15aca5052d8
   m_configObjects: {}
