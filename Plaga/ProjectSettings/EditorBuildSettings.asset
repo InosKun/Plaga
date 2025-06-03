@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/catedralDentro.unity
     guid: 29dde42203f3c77469739757ee226e5e
+  - enabled: 1
+    path: Assets/Scenes/Pantalla inicio.unity
+    guid: d54b4e16fc9056e42bcc3fe4ae2f608e
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: 0f401f4c2beb51a4294e0ec185e86f51
   m_configObjects: {}
