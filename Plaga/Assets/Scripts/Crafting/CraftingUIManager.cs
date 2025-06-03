@@ -1,103 +1,70 @@
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 using System.Collections.Generic;
 
 public class CraftingUIManager : MonoBehaviour
 {
-    [Header("UI Elements")]
-    public GameObject panel;
-    public Image inputSlot1Image;
-    public Image inputSlot2Image;
+    public static CraftingUIManager instance;
+
+    public CraftingSlot inputSlot1;
+    public CraftingSlot inputSlot2;
     public Image outputSlotImage;
-    public TextMeshProUGUI holdToCraftText;
-    public Button closeButton;
+    public Button craftButton;
 
-    [Header("Data")]
-    public List<MaskRecipe> allRecipes;
+    public List<CraftingRecipe> recipes;
 
-    private MaterialItem inputMaterial1;
-    private MaterialItem inputMaterial2;
+    private CraftingRecipe matchedRecipe;
 
-    void Start()
+    private void Awake()
     {
-        panel.SetActive(false);
-        holdToCraftText.gameObject.SetActive(false);
-        closeButton.onClick.AddListener(HideCraftingUI);
-        ClearInputs();
+        instance = this;
+        craftButton.onClick.AddListener(CraftItem);
+        outputSlotImage.enabled = false;
     }
 
-    public void ShowCraftingUI()
+    public void OnSlotChanged()
     {
-        panel.SetActive(true);
-    }
+        matchedRecipe = null;
 
-    public void HideCraftingUI()
-    {
-        panel.SetActive(false);
-        Time.timeScale = 1f; // resume game
-        ClearInputs();
-    }
-
-    public void SetInputMaterial(MaterialItem item, int slotIndex)
-    {
-        if (slotIndex == 1)
+        if (inputSlot1.currentItem == null || inputSlot2.currentItem == null)
         {
-            inputMaterial1 = item;
-            inputSlot1Image.sprite = item.icon;
-            inputSlot1Image.color = Color.white;
-        }
-        else
-        {
-            inputMaterial2 = item;
-            inputSlot2Image.sprite = item.icon;
-            inputSlot2Image.color = Color.white;
-        }
-
-        CheckRecipeMatch();
-    }
-
-    private void CheckRecipeMatch()
-    {
-        outputSlotImage.sprite = null;
-        outputSlotImage.color = new Color(1, 1, 1, 0); // Transparent
-
-        if (inputMaterial1 == null || inputMaterial2 == null)
-        {
-            holdToCraftText.gameObject.SetActive(false);
+            outputSlotImage.enabled = false;
             return;
         }
 
-        foreach (var recipe in allRecipes)
+        foreach (var recipe in recipes)
         {
-            bool match = (recipe.ingredient1 == inputMaterial1 && recipe.ingredient2 == inputMaterial2)
-                      || (recipe.ingredient1 == inputMaterial2 && recipe.ingredient2 == inputMaterial1);
-
-            if (match)
+            if ((recipe.ingredient1 == inputSlot1.currentItem && recipe.ingredient2 == inputSlot2.currentItem) ||
+                (recipe.ingredient1 == inputSlot2.currentItem && recipe.ingredient2 == inputSlot1.currentItem))
             {
-                outputSlotImage.sprite = recipe.icon;
-                outputSlotImage.color = Color.white;
-                holdToCraftText.gameObject.SetActive(true);
-                return;
+                matchedRecipe = recipe;
+                break;
             }
         }
 
-        // No recipe found
-        outputSlotImage.sprite = null;
-        outputSlotImage.color = new Color(1, 1, 1, 0);
-        holdToCraftText.gameObject.SetActive(false);
+        if (matchedRecipe != null)
+        {
+            outputSlotImage.sprite = matchedRecipe.result.icon;
+            outputSlotImage.enabled = true;
+        }
+        else
+        {
+            outputSlotImage.sprite = null;
+            outputSlotImage.enabled = false;
+        }
     }
 
-    private void ClearInputs()
+    void CraftItem()
     {
-        inputMaterial1 = null;
-        inputMaterial2 = null;
-        inputSlot1Image.sprite = null;
-        inputSlot2Image.sprite = null;
-        inputSlot1Image.color = new Color(1, 1, 1, 0);
-        inputSlot2Image.color = new Color(1, 1, 1, 0);
-        outputSlotImage.sprite = null;
-        outputSlotImage.color = new Color(1, 1, 1, 0);
-        holdToCraftText.gameObject.SetActive(false);
+        if (matchedRecipe != null)
+        {
+            Debug.Log("Crafted: " + matchedRecipe.result.itemName);
+
+            inputSlot1.Clear();
+            inputSlot2.Clear();
+            outputSlotImage.sprite = null;
+            outputSlotImage.enabled = false;
+        }
     }
 }
+

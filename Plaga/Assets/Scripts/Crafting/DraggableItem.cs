@@ -2,12 +2,11 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class DraggableMaterialUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    public MaterialItem materialData; // This is the ScriptableObject reference
-
-    private RectTransform rectTransform;
+    public MaterialItem itemData;
     private CanvasGroup canvasGroup;
+    private RectTransform rectTransform;
     private Transform originalParent;
 
     private void Awake()
@@ -19,9 +18,7 @@ public class DraggableMaterialUI : MonoBehaviour, IBeginDragHandler, IDragHandle
     public void OnBeginDrag(PointerEventData eventData)
     {
         originalParent = transform.parent;
-        Transform dragLayer = GameObject.Find("DragLayer").transform;
-        transform.SetParent(dragLayer);
-
+        transform.SetParent(transform.root); // Move to top of canvas
         canvasGroup.blocksRaycasts = false;
     }
 

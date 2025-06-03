@@ -1,9 +1,8 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewMaterial", menuName = "Crafting/Material")]
+[CreateAssetMenu(menuName = "Crafting/Material Item")]
 public class MaterialItem : ScriptableObject
 {
-    public string materialName;
+    public string itemName;
     public Sprite icon;
 }
-
