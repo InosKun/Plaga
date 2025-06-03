@@ -105,7 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 880f8eba2a1a6954b8821bb6d0bb7558, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  materialData: {fileID: 11400000, guid: dcf76fd7b7a90664d8d9fb95af8c536e, type: 2}
+  itemData: {fileID: 11400000, guid: dcf76fd7b7a90664d8d9fb95af8c536e, type: 2}
 --- !u!222 &8455134984734103404
 CanvasRenderer:
   m_ObjectHideFlags: 0

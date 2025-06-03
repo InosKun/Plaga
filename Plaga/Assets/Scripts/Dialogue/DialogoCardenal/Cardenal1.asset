@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c251a94ba76ffa745988d51b59ab4b31, type: 3}
+  m_Name: Cardenal1
+  m_EditorClassIdentifier: 
+  lineText: "Buenas tardes L\xE1zaro, qu\xE9 alegr\xEDa verte sano y salvo. Tem\xEDa
+    que hubieras ca\xEDdo enfermo a causa de la plaga. "
+  speakerName: "Cardenal Rodr\xEDguez"
+  portrait: {fileID: 21300000, guid: 7cd3e046538868344bcb85430cecc5ac, type: 3}
+  choices: []

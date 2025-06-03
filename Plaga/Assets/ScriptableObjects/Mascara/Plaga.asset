@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 81b7dc9cf91e6a644abc4b2ba62dd5b5, type: 3}
-  m_Name: Hierbas
+  m_Name: Plaga
   m_EditorClassIdentifier: 
-  itemName: hierbas
-  icon: {fileID: 21300000, guid: 6fa3c57cfe325c3468605cfbbd7e57ca, type: 3}
+  itemName: Plaga
+  icon: {fileID: 21300000, guid: f5a5af6ce9a4d0341becd4c2b0f71b1e, type: 3}

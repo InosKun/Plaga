@@ -12,8 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fcdf4037f1f3724cb127ef8bc3329a8, type: 3}
   m_Name: Mentiras
   m_EditorClassIdentifier: 
-  maskName: Mentira
-  icon: {fileID: 21300000, guid: a4c9b65a26841a64dbc54407ddd945f2, type: 3}
   ingredient1: {fileID: 11400000, guid: 23e29f71e14d80347b8091c0da9715c1, type: 2}
   ingredient2: {fileID: 11400000, guid: dcf76fd7b7a90664d8d9fb95af8c536e, type: 2}
-  description: 
+  result: {fileID: 11400000, guid: 1202f59cb10b8bb4b94a58454b5e2595, type: 2}

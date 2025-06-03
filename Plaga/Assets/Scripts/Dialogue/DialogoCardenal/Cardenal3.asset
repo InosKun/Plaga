@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c251a94ba76ffa745988d51b59ab4b31, type: 3}
-  m_Name: "Mar\xEDa2"
+  m_Name: Cardenal3
   m_EditorClassIdentifier: 
-  lineText: "\xA1Se que lo hab\xE9is provocado vosotros! Todo esto es vuestra culpa,
-    la avaricia y el poder os ha cegado..."
-  speakerName: "Do\xF1a Mar\xEDa"
-  portrait: {fileID: 21300000, guid: 33c85a675bbf4e844b19d486ee9f52af, type: 3}
+  lineText: "Lo \xFAnico que ha conseguido esa mujer es revolucionar a la gente y
+    dificultarnos las cosas. Debemos restablecer el orden, pero siguiendo ciertas
+    prioridades y de manera organizada... "
+  speakerName: "Cardenal Rodr\xEDguez"
+  portrait: {fileID: 0}
   choices: []

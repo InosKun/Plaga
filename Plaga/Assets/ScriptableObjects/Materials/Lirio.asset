@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81b7dc9cf91e6a644abc4b2ba62dd5b5, type: 3}
   m_Name: Lirio
   m_EditorClassIdentifier: 
-  materialName: Lirio
+  itemName: lirio
   icon: {fileID: 21300000, guid: c207c57bf976d384ebbb628c2841d548, type: 3}

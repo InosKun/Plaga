@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 6329260796970884073}
   - component: {fileID: 2153910065616751251}
   - component: {fileID: 1449651119734498491}
-  - component: {fileID: 1806615903083119435}
   m_Layer: 0
   m_Name: Hierba
   m_TagString: Untagged
@@ -105,7 +104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 880f8eba2a1a6954b8821bb6d0bb7558, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  materialData: {fileID: 11400000, guid: 23e29f71e14d80347b8091c0da9715c1, type: 2}
+  itemData: {fileID: 11400000, guid: 23e29f71e14d80347b8091c0da9715c1, type: 2}
 --- !u!222 &6329260796970884073
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -156,16 +155,3 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &1806615903083119435
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 424623565160611372}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31b0523f58842a2438c279aefd37a747, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemName: 

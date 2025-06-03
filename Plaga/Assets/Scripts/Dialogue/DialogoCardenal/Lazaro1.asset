@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c251a94ba76ffa745988d51b59ab4b31, type: 3}
+  m_Name: Lazaro1
+  m_EditorClassIdentifier: 
+  lineText: "Me alegro de verte sano y salvo a ti tambi\xE9n Eliseo. Hemos sido ambos
+    muy afortunados... No todo el mundo puede decir lo mismo"
+  speakerName: "L\xE1zaro"
+  portrait: {fileID: 0}
+  choices: []

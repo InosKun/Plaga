@@ -23,10 +23,10 @@ public class CraftingInventoryUI : MonoBehaviour
         {
             GameObject icon = Instantiate(materialIconPrefab, contentParent);
             Image image = icon.GetComponent<Image>();
-            DraggableMaterialUI drag = icon.GetComponent<DraggableMaterialUI>();
+            //DraggableMaterialUI drag = icon.GetComponent<DraggableMaterialUI>();
 
             image.sprite = material.icon;
-            drag.materialData = material;
+            //drag.materialData = material;
         }
     }
 }

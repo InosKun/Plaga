@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5280844534808179697}
   - component: {fileID: 1941325278912126254}
-  - component: {fileID: 6673190188217394264}
   - component: {fileID: 4768168299261319327}
   - component: {fileID: 4195103425952547461}
   - component: {fileID: 9174752887499942045}
+  - component: {fileID: 8045806535568421519}
   m_Layer: 0
   m_Name: Pluma
   m_TagString: Untagged
@@ -92,19 +92,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6673190188217394264
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2798402411313505603}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 880f8eba2a1a6954b8821bb6d0bb7558, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  materialData: {fileID: 11400000, guid: 77802aebeeb769c45b092417a543bdbc, type: 2}
 --- !u!222 &4768168299261319327
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -155,3 +142,16 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &8045806535568421519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2798402411313505603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 880f8eba2a1a6954b8821bb6d0bb7558, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemData: {fileID: 11400000, guid: 77802aebeeb769c45b092417a543bdbc, type: 2}
