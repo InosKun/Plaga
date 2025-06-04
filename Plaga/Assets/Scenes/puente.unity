@@ -515,9 +515,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba972a5dfab19b146abdad5c39c51402, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: fachadaCatedral
-  visualCue: {fileID: 1695527382}
-  targetSpawnID: FromPuente
+  targetScene: fachadaCatedral
+  useKeyInput: 1
+  interactionKey: 101
 --- !u!58 &937457379
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1139,9 +1139,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba972a5dfab19b146abdad5c39c51402, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: lobby
-  visualCue: {fileID: 663875465}
-  targetSpawnID: FromPuente
+  targetScene: catedralDentro
+  useKeyInput: 1
+  interactionKey: 101
 --- !u!58 &1918199045
 CircleCollider2D:
   m_ObjectHideFlags: 0

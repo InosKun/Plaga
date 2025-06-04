@@ -21,7 +21,8 @@ public class MenuPpal : MonoBehaviour
         "Cargar",
         "Options",
         "Creditos",
-        "Salir"};
+        "Salir"
+    };
 
       Button[] boton;
 
@@ -38,7 +39,7 @@ public class MenuPpal : MonoBehaviour
         boton[(int)BotonesMenuPpal.MPPal_Option].onClick.AddListener(optionsClicked); 
         boton[(int)BotonesMenuPpal.MPPal_Credits].onClick.AddListener(creditsClicked);
         boton[(int)BotonesMenuPpal.MPPal_Exit].onClick.AddListener(exitClicked);
-        }
+    }
       
 
     void exitClicked() {
@@ -53,7 +54,7 @@ public class MenuPpal : MonoBehaviour
      void playClicked() {
 //Output this to console when the Button is clicked
        Debug.Log("You have clicked the button Jugar!");
-       SceneManager.LoadScene("first person");
+       SceneManager.LoadScene("Carga");
     }
 
     void cargaClicked()
@@ -70,9 +71,9 @@ public class MenuPpal : MonoBehaviour
       void creditsClicked() {
       //Output this to console when the Button is clicked
       SceneManager.LoadScene("Creditos");
-    }  
+    }
 
-     void Update() {
+    void Update() {
       //Regla del escape
       if (Input.GetKey("escape"))
         exitClicked();
