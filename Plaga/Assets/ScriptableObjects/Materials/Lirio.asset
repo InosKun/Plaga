@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Lirio
   m_EditorClassIdentifier: 
   itemName: lirio
-  icon: {fileID: 21300000, guid: c207c57bf976d384ebbb628c2841d548, type: 3}
+  icon: {fileID: 21300000, guid: 9040f435e1234d94b9d9b5edad298077, type: 3}
