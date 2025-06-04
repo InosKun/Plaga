@@ -36,7 +36,7 @@ public class Volumnen : MonoBehaviour
   
        void volverClicked() {
          Debug.Log("Botón Volver presionado");
-         SceneManager.LoadScene("opciones");
+         SceneManager.LoadScene("MenuPpal");
           }
     
 }

@@ -64,7 +64,7 @@ public class MenuPpal : MonoBehaviour
 
     void optionsClicked() {
       //Output this to console when the Button is clicked
-      SceneManager.LoadScene("opciones");
+      SceneManager.LoadScene("Volumen");
     }  
 
       void creditsClicked() {
