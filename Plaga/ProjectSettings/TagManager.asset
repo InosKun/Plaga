@@ -50,6 +50,9 @@ TagManager:
   - name: Interactable
     uniqueID: 3103104827
     locked: 0
+  - name: Muro
+    uniqueID: 3652336981
+    locked: 0
   - name: player
     uniqueID: 4129182299
     locked: 1

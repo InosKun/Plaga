@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Muertos
   m_EditorClassIdentifier: 
   itemName: "M\xE1scara Muertos"
-  icon: {fileID: 21300000, guid: 5755c48bbb089844087f17c9200f7783, type: 3}
+  icon: {fileID: 21300000, guid: 434f808c760930645be702d853a4bc5b, type: 3}

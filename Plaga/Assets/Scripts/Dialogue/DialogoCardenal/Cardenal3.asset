@@ -16,5 +16,5 @@ MonoBehaviour:
     dificultarnos las cosas. Debemos restablecer el orden, pero siguiendo ciertas
     prioridades y de manera organizada... "
   speakerName: "Cardenal Rodr\xEDguez"
-  portrait: {fileID: 0}
+  portrait: {fileID: 21300000, guid: 7cd3e046538868344bcb85430cecc5ac, type: 3}
   choices: []
