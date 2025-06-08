@@ -1,7 +1,15 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("Footstep Sounds")]
+    public AudioClip[] footstepClips; // Assign 3 clips here
+    public float stepInterval = 0.4f; // Time between steps
+    public AudioSource footstepSource;
+
+    private float stepTimer;
+    private int stepIndex = 0;
+
     public float moveSpeed = 5f;
 
     private Animator animator;
@@ -24,7 +32,7 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         if (DialogueManager.DialogueIsActive)
-        return; 
+            return;
 
         input.x = Input.GetAxisRaw("Horizontal");
         input.y = Input.GetAxisRaw("Vertical");
@@ -38,8 +46,22 @@ public class PlayerController : MonoBehaviour
         if (input != Vector2.zero)
         {
             lastMoveDir = input;
+
+            // Step timer
+            stepTimer -= Time.deltaTime;
+            if (stepTimer <= 0f)
+            {
+                PlayFootstep();
+                stepTimer = stepInterval;
+            }
+        }
+        else
+        {
+            // Reset timer when stopping
+            stepTimer = 0f;
         }
     }
+
 
 
     private void FixedUpdate()
@@ -90,5 +112,17 @@ public class PlayerController : MonoBehaviour
 
         return hit.collider != null;
     }
+
+    void PlayFootstep()
+    {
+        if (footstepClips.Length == 0 || footstepSource == null)
+            return;
+
+        footstepSource.PlayOneShot(footstepClips[stepIndex]);
+
+        // Cycle through the array (0 → 1 → 2 → 0 → ...)
+        stepIndex = (stepIndex + 1) % footstepClips.Length;
+    }
+
 
 }

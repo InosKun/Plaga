@@ -4,25 +4,41 @@ using UnityEngine.EventSystems;
 
 public class ButtonHoverEffect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    public CanvasGroup hoverOverlay;       // Drag the overlay image's CanvasGroup here
+    [Header("Fade Visual")]
+    public CanvasGroup hoverOverlay;
     public float fadeDuration = 0.2f;
+
+    [Header("Hover Sound")]
+    public AudioClip hoverSound;
+    public AudioSource audioSource; // Optional: assign or it will add one automatically
 
     private Coroutine fadeCoroutine;
 
     private void Start()
     {
         if (hoverOverlay != null)
-            hoverOverlay.alpha = 0f; // Start hidden
+            hoverOverlay.alpha = 0f;
+
+        if (audioSource == null && hoverSound != null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+            audioSource.playOnAwake = false;
+        }
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        StartFade(1f); // Fade in
+        StartFade(1f);
+
+        if (hoverSound != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(hoverSound);
+        }
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        StartFade(0f); // Fade out
+        StartFade(0f);
     }
 
     void StartFade(float targetAlpha)
